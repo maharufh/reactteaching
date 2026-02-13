@@ -1,0 +1,230 @@
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+                body {
+                        background-color: rgb(242, 122, 122);
+                }
+        </style>
+</head>
+
+<body>
+        <!-- <h5> In this live video we will do basic programming </h5> -->
+        <!-- <h6>if you want to practice you can do along with me</h6> -->
+        <!-- <h4>We will sart from very basic like print hello world</h4> -->
+        <h1 style="color: red">THIS IS TIME FOR TABAHI</h1>
+
+        Q3. If the sum of the cube of each digit equal to the given number then
+        print that is a hulu hulu number - check armstrong number
+        <br>
+        q6. reverse the given number
+        Q5. check plaindrome or not <br>
+        q6.plaindrome number in a range
+
+        <script>
+                // let print = "hello world";
+
+                // console.log(print);
+
+                // <!-- q2. Print 1 to 10 digits -->
+
+                // let i = 0;
+                // for ( i = 1; i<= 10;i++){
+                //     console.log(i)
+
+                // }
+                // Q2. print numbers from 10 to 1
+
+                // for ( i = 10; i>= 1;i--){
+                //     console.log(i)
+
+                // }
+                //       let num = 153;
+                //       let temp = num;
+
+                //       let sum = 0;
+
+                //       while(num > 0){
+                //         let rem = num % 10;
+                //         let res = rem*rem*rem;
+                //         sum = sum + res;
+
+                //         num = Math.trunc(num/10);
+
+                //       }
+
+                //       if (temp == sum){
+                //         console.log("Armstrong");
+                //       }else{
+                //         console.log("not a Armstrong ");
+                //       }
+                      console.log("now for any length of number");
+                        let num = parseInt(prompt("Enter any digit number"))
+                      let temp = num;
+                      let c = 0;
+                      while (num >0){
+                        c++;
+                        num = Math.trunc(num/10);
+                      }
+                      num = temp;
+
+                      let sum = 0;
+
+                      while(num > 0){
+                        let rem = num % 10;
+                        let fact = 1;
+                        for(let i = 1; i <= c; i++){
+                                fact += rem;
+
+                        }
+                        sum = sum + fact;
+
+                        num = Math.trunc(num/10);
+
+                      }
+
+                      if (temp == sum){
+                        console.log("Armstrong");
+                      }else{
+                        console.log("not a Armstrong ");
+                      }
+/// reverse a number
+                // let num = 123456;
+                // let rev = 0;
+
+                // while (num > 0) {
+                //         let rem = num % 10;
+
+
+                //         rev = (rev * 10) + rem;
+                //         num = Math.trunc(num/10);
+
+                // }
+                // console.log(rev);
+
+                //q5
+                // let num = 121;
+                // let temp = num;
+                // let rev= 0;
+
+                // while (num > 0 ){
+                //         let rem = num%10;
+                //         rev = (rev * 10) + rem;
+                //         num = Math.trunc(num/10);
+                // }
+                // if(rev == temp){
+                //         console.log("It's a prime");
+                // }else{
+                //         console.log("It's Not a Prime Number");
+                // }
+
+                //q6
+
+                // for (let i = 10; i <= 100; i++){
+                //         let num = i;
+                //         let rev = 0;
+                //         while(num > 0){
+                //                  let rem = num%10;
+                //         rev = (rev * 10) + rem;
+                //         num = Math.trunc(num/10);
+                //         }
+                //         if(rev == i){
+                //                 console.log(i);
+                //         }
+                // }
+
+// First three palindrome number in a given range
+
+   
+//    s
+
+// now last three
+
+// console.log("this is last three ");
+//  let count = 0;
+
+//     for (let i = 100; i >= 10; i--){
+//                         let num = i;
+//                         let rev = 0;
+//                         while(num > 0){
+//                                  let rem = num%10;
+//                         rev = (rev * 10) + rem;
+//                         num = Math.trunc(num/10);
+//                         }
+//                         if(rev == i){
+//                                 count++;
+//                                  console.log(i);
+//                                 if(count == 3)
+//                                 break;
+                              
+//                         }
+//                 }
+// all odd palindrome in range
+// console.log("this is for all odd palindrome ");
+//  let count = 0;
+
+//     for (let i = 100; i >= 10; i--){
+//                         let num = i;
+//                         let rev = 0;
+//                         while(num > 0){
+//                                  let rem = num%10;
+//                         rev = (rev * 10) + rem;
+//                         num = Math.trunc(num/10);
+//                         }
+//                         if(rev == i){
+//                                 count++;
+                                 
+//                                 if(count%2 !== 0)
+//                                 console.log(i);
+                                 
+                              
+//                         }
+//                 }
+
+// console.log("this is for next palindrome ");
+//   let start = parseInt(prompt("enter the starting number"))
+//     for (let i = start; true; i++){
+//                         let num = i;
+//                         let rev = 0;
+//                         while(num > 0){
+//                                  let rem = num%10;
+//                         rev = (rev * 10) + rem;
+//                         num = Math.trunc(num/10);
+//                         }
+//                         if(rev == i){
+                              
+                                 
+                                
+//                                 console.log(i);
+//                                  break;
+                              
+//                         }
+//                 }
+
+// console.log("what is the number which we have to add to get the next palindrome ");
+//   let start = parseInt(prompt("enter the starting number"))
+//     for (let i = start; true; i++){
+//                         let num = i;
+//                         let rev = 0;
+//                         while(num > 0){
+//                                  let rem = num%10;
+//                         rev = (rev * 10) + rem;
+//                         num = Math.trunc(num/10);
+//                         }
+//                         if(rev == i){
+//                                 //  console.log(`${start} + ${i-start} = ${i}`);
+//                                  console.log(`  ${i-start} `);
+//                          break;
+                              
+//                         }
+//                 }
+
+
+
+        </script>
+</body>
+
+</html>

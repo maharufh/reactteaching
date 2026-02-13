@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at bottom, #020024, #04043a, #000);
+    overflow:hidden;
+    font-family: system-ui, sans-serif;
+}
+
+/* ===================== */
+/* COUNTDOWN */
+/* ===================== */
+#countdown{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    font-size:30vw;
+    font-weight:900;
+    color:gold;
+    text-shadow:
+        0 0 30px gold,
+        0 0 60px orange,
+        0 0 100px red;
+    animation: zoom 1s ease-in-out infinite;
+    z-index:5;
+}
+
+@keyframes zoom {
+    0% { transform: scale(0.3); opacity:0; }
+    40% { transform: scale(1.2); opacity:1; }
+    70% { transform: scale(1); }
+    100% { transform: scale(0.6); opacity:0; }
+}
+
+/* ===================== */
+/* FLASH */
+/* ===================== */
+.flash{
+    position:fixed;
+    inset:0;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+    z-index:10;
+}
+
+.flash.active{
+    animation: flash 0.3s ease;
+}
+
+@keyframes flash{
+    from{opacity:1;}
+    to{opacity:0;}
+}
+
+/* ===================== */
+/* FIREWORKS */
+/* ===================== */
+.firework{
+    position:absolute;
+    bottom:0;
+    width:4px;
+    height:4px;
+    animation: shoot 2.5s infinite ease-out;
+    z-index:1;
+}
+
+.firework::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    box-shadow:
+        0 -80px gold,
+        60px -60px deeppink,
+        80px 0 gold,
+        60px 60px orange,
+        0 80px gold,
+        -60px 60px deeppink,
+        -80px 0 gold,
+        -60px -60px orange;
+    animation: explode 2.5s infinite ease-out;
+}
+
+@keyframes shoot{
+    0%{ transform: translateY(0); opacity:1;}
+    60%{ transform: translateY(-450px); opacity:1;}
+    100%{ opacity:0;}
+}
+
+@keyframes explode{
+    0%{ transform: scale(0); opacity:1;}
+    60%{ transform: scale(1);}
+    100%{ transform: scale(2); opacity:0;}
+}
+
+/* Multiple fireworks */
+.fw1{ left:15%; animation-delay:0s;}
+.fw2{ left:35%; animation-delay:0.6s;}
+.fw3{ left:55%; animation-delay:1.2s;}
+.fw4{ left:75%; animation-delay:1.8s;}
+.fw5{ left:90%; animation-delay:2.2s;}
+
+/* ===================== */
+/* WISH TEXT */
+/* ===================== */
+#wish{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    opacity:0;
+    transform:scale(0);
+    transition:all 1s ease;
+    z-index:5;
+}
+
+#wish h1{
+    font-size:12vw;
+    background:linear-gradient(90deg, gold, orange, deeppink);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow:0 0 50px gold;
+}
+
+#wish p{
+    font-size:4vw;
+    letter-spacing:5px;
+    margin-top:20px;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- COUNTDOWN -->
+<div id="countdown">10</div>
+
+<!-- FLASH -->
+<div id="flash" class="flash"></div>
+
+<!-- FIREWORKS -->
+<div class="firework fw1"></div>
+<div class="firework fw2"></div>
+<div class="firework fw3"></div>
+<div class="firework fw4"></div>
+<div class="firework fw5"></div>
+
+<!-- WISH -->
+<div id="wish">
+    <div>
+        <h1>2026</h1>
+        <p>🎆 HAPPY NEW YEAR 🎆</p>
+    </div>
+</div>
+
+<script>
+let count = 10;
+const countdown = document.getElementById("countdown");
+const flash = document.getElementById("flash");
+const wish = document.getElementById("wish");
+
+const timer = setInterval(() => {
+    countdown.textContent = count;
+
+    // restart animation
+    countdown.style.animation = "none";
+    countdown.offsetHeight;
+    countdown.style.animation = "zoom 1s ease-in-out";
+
+    count--;
+
+    if(count < 0){
+        clearInterval(timer);
+
+        countdown.style.display = "none";
+        flash.classList.add("active");
+
+        setTimeout(()=>{
+            wish.style.opacity = "1";
+            wish.style.transform = "scale(1)";
+        },300);
+    }
+},1000);
+</script>
+
+</body>
+</html>

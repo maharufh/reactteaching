@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Realistic Firecracker Effects</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at bottom, #020024, #03032e, #000);
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+}
+
+/* ============================ */
+/* 💣 FIRECRACKER CORE */
+/* ============================ */
+.cracker {
+    position: absolute;
+    top: 45%;
+    width: 6px;
+    height: 6px;
+    animation: blast 3s infinite ease-out;
+}
+
+.cracker::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow:
+        0 -25px gold,
+        18px -18px orange,
+        25px 0 gold,
+        18px 18px orange,
+        0 25px gold,
+        -18px 18px orange,
+        -25px 0 gold,
+        -18px -18px orange,
+
+        0 -70px yellow,
+        50px -50px red,
+        70px 0 yellow,
+        50px 50px red,
+        0 70px yellow,
+        -50px 50px red,
+        -70px 0 yellow,
+        -50px -50px red;
+    animation: spark 3s infinite ease-out;
+}
+
+/* ============================ */
+/* 💨 SMOKE AFTER BLAST */
+/* ============================ */
+.cracker::after {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,200,200,0.4), transparent 70%);
+    animation: smoke 3s infinite ease-out;
+}
+
+/* ============================ */
+/* ✨ FALLING SPARK TRAILS */
+/* ============================ */
+.trail {
+    position: absolute;
+    top: 45%;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, gold, transparent);
+    animation: fall 3s infinite linear;
+    opacity: 0;
+}
+
+/* ============================ */
+/* 🎆 ANIMATIONS */
+/* ============================ */
+@keyframes blast {
+    0% { transform: scale(0); opacity: 1; }
+    15% { transform: scale(1); }
+    100% { opacity: 0; }
+}
+
+@keyframes spark {
+    0% { transform: scale(0); opacity: 1; }
+    20% { transform: scale(1); }
+    100% { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes smoke {
+    0% { opacity: 0; transform: scale(0.6); }
+    25% { opacity: 0.4; }
+    100% { opacity: 0; transform: scale(2.4); }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(180px);
+        opacity: 0;
+    }
+}
+
+/* ============================ */
+/* 🎯 RANDOM-LOOKING POSITIONS */
+/* ============================ */
+.c1 { left: 15%; animation-delay: 0s; }
+.c2 { left: 35%; animation-delay: 0.6s; }
+.c3 { left: 55%; animation-delay: 1.2s; }
+.c4 { left: 75%; animation-delay: 1.8s; }
+
+.t1 { left: 16%; animation-delay: 0.1s; }
+.t2 { left: 18%; animation-delay: 0.2s; }
+.t3 { left: 36%; animation-delay: 0.7s; }
+.t4 { left: 38%; animation-delay: 0.8s; }
+.t5 { left: 56%; animation-delay: 1.3s; }
+.t6 { left: 58%; animation-delay: 1.4s; }
+.t7 { left: 76%; animation-delay: 1.9s; }
+.t8 { left: 78%; animation-delay: 2s; }
+
+/* ============================ */
+/* 💥 TEXT EXPLOSION */
+/* ============================ */
+.text {
+    position: absolute;
+    top: 38%;
+    width: 100%;
+    text-align: center;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(90deg, gold, orange, deeppink);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textBoom 3s infinite;
+    text-shadow: 0 0 40px rgba(255,255,255,0.6);
+}
+
+@keyframes textBoom {
+    0% { transform: scale(0); opacity: 0; filter: blur(8px); }
+    20% { transform: scale(1.3); opacity: 1; filter: blur(0); }
+    40% { transform: scale(1); }
+    100% { transform: scale(2.4); opacity: 0; filter: blur(12px); }
+}
+
+/* ⚡ PERFORMANCE */
+.cracker,
+.cracker::before,
+.cracker::after,
+.trail,
+.text {
+    will-change: transform, opacity;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRECRACKERS -->
+<div class="cracker c1"></div>
+<div class="cracker c2"></div>
+<div class="cracker c3"></div>
+<div class="cracker c4"></div>
+
+<!-- FALLING SPARK TRAILS -->
+<div class="trail t1"></div>
+<div class="trail t2"></div>
+<div class="trail t3"></div>
+<div class="trail t4"></div>
+<div class="trail t5"></div>
+<div class="trail t6"></div>
+<div class="trail t7"></div>
+<div class="trail t8"></div>
+
+<!-- TEXT -->
+<div class="text">💥 HAPPY NEW YEAR 2025 💥</div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New Year Celebration</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🌌 NIGHT SKY */
+body {
+    height: 100vh;
+    background: radial-gradient(circle at bottom, #020024, #04043a, #000);
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+}
+
+/* 🎆 FIREWORK BASE */
+.firework {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: 4px;
+    animation: shoot 3s infinite ease-out;
+}
+
+/* 💥 BURST */
+.firework::before,
+.firework::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    --color: hsl(var(--h), 100%, 60%);
+    box-shadow:
+        0 -90px var(--color),
+        65px -65px var(--color),
+        90px 0 var(--color),
+        65px 65px var(--color),
+        0 90px var(--color),
+        -65px 65px var(--color),
+        -90px 0 var(--color),
+        -65px -65px var(--color),
+        0 -130px var(--color),
+        92px -92px var(--color),
+        -92px -92px var(--color);
+    animation: burst 3s infinite ease-out;
+}
+
+.firework::after {
+    transform: rotate(22deg);
+}
+
+/* ❤️ HEART BURST */
+.heart::before {
+    box-shadow:
+        0 -70px hotpink,
+        40px -45px hotpink,
+        55px -10px hotpink,
+        40px 25px hotpink,
+        0 45px hotpink,
+        -40px 25px hotpink,
+        -55px -10px hotpink,
+        -40px -45px hotpink;
+}
+
+/* 🚀 ANIMATIONS */
+@keyframes shoot {
+    0% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(-420px); opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes burst {
+    0% { transform: scale(0); opacity: 1; }
+    60% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* 🎉 HAPPY NEW YEAR TEXT */
+.text {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, gold, orange, deeppink, cyan);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textPulse 2s infinite;
+    text-shadow: 0 0 40px rgba(255,255,255,0.4);
+}
+
+@keyframes textPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* 🎇 MANY FIREWORKS (CHAOS MODE) */
+.fw1  { left: 5%;  --h: 10;  animation-delay: 0s; }
+.fw2  { left: 15%; --h: 60;  animation-delay: .4s; }
+.fw3  { left: 25%; --h: 120; animation-delay: .8s; }
+.fw4  { left: 35%; --h: 180; animation-delay: 1.2s; }
+.fw5  { left: 45%; --h: 220; animation-delay: 1.6s; }
+.fw6  { left: 55%; --h: 260; animation-delay: 2s; }
+.fw7  { left: 65%; --h: 300; animation-delay: .6s; }
+.fw8  { left: 75%; --h: 340; animation-delay: 1s; }
+.fw9  { left: 85%; --h: 30;  animation-delay: 1.4s; }
+.fw10 { left: 95%; --h: 150; animation-delay: 1.8s; }
+
+/* ⚡ PERFORMANCE */
+.firework,
+.firework::before,
+.firework::after {
+    will-change: transform, opacity;
+}
+</style>
+</head>
+
+<body>
+
+<div class="firework fw1"></div>
+<div class="firework fw2 heart"></div>
+<div class="firework fw3"></div>
+<div class="firework fw4"></div>
+<div class="firework fw5 heart"></div>
+<div class="firework fw6"></div>
+<div class="firework fw7"></div>
+<div class="firework fw8 heart"></div>
+<div class="firework fw9"></div>
+<div class="firework fw10"></div>
+
+<div class="text">🎆 HAPPY NEW YEAR 2025 🎆</div>
+
+</body>
+</html>

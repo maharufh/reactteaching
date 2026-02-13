@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorpicker</title>
+    <style>
+        #box {
+            background-color: black;
+            height: 200px;
+            width: 200px;
+            margin-top: 30px;
+            align-items: center;
+            color: white;
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Today We will build color picker-Project 1</h4>
+    <label for="color">R:</label>
+    <input type="number" name="R" id="r" placeholder="0-255"><br><br>
+    <label for="color">G:</label>
+    <input type="number" name="G" id="g" placeholder="0-255"><br><br>
+    <label for="color">B:</label>
+    <input type="number" name="b" id="b" placeholder="0-255"><br><br>
+    <button id="btn" onclick="changeColor()"> Submit
+
+    </button>
+    <div id="box">box</div>
+    <script>
+        function changeColor(){
+
+            let R = document.getElementById('r').value;
+            let G = document.getElementById('g').value;
+            let B = document.getElementById('b').value;
+
+            if(R === '' || G === '' || B === ''){
+                alert("Please put the right value of R,G and B");
+                return;
+            }
+            
+            if (R < 0 || R > 255 || G < 0 || G > 255 || B < 0 || B > 255){
+                alert("Values Must be in between 0-255");
+                return;
+                
+            }
+           let rgb = `rgb(${R}, ${G}, ${B})`;
+
+           let box = document.getElementById('box');
+           box.style.backgroundColor = rgb;
+            box.innerHTML = rgb;
+
+        }
+    </script>
+</body>
+
+</html>

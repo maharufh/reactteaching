@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student form</title>
+    <style>
+        body {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="student form">
+        <fieldset>
+            <legend>
+                STUDENT APPLICATON FORM
+            </legend>
+            <label for="sfname">FIRST NAME</label>
+            <input type="text" name="sfname" id="sfname" placeholder="student 
+firstname" size="30" /> (max 30 character a-z nd A-Z)
+            <br>
+            <br>
+            <label for="slname">LAST NAME</label>
+
+            <input type="text" name="slanme" id="slanme" />(max 30 character a-z nd A-Z)
+            <br>
+            <br>
+            <label for="dob">DATE OF BIRTH</label>
+            <input type="date" name="dob" id="dob" placeholder="dd-mm-yyyy">
+            <br>
+            <br>
+            <label for="emial">EMAIL ID</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <br>
+            <label for="tel">PHONE NUMBER</label>
+            <input type="tel" name="tel" id="tel" pattern="[0-9]{10}" maxlength="10" minlength="10">(10 digit number)
+             <br><br>
+
+             <label for="Gender">GENDER</label>
+             <input type="radio" name="radio" id="radio" value="Male">
+             <label for="Gender">Male</label>
+             <input type="radio" name="radio" id="radio" value="Female">
+             <label for="Gender">Female</label>
+
+             <br><br>
+             <label for="address">ADDRESS</label>
+             <textarea name="address" id="address" rows="10" cols="30"></textarea>
+             <br><br>
+             <label for="Loc">CITY</label>
+             <input type="text" name="Loc" id="loc"/>(max 30 character)
+             <br><br>
+             <label for="pin">PINCODE</label>
+             <input type="tel" name="pin" id="pin"> (max 6 digit number)
+             <br><br>
+
+             <label for="state">STATE</label>
+             <input type="text" name="state" id="state">(max 30 character)
+             <br><br>
+
+             <label for="country">COUNTRY</label>
+             <input type="text" name="country" id="country" value="INDIA">
+             <br><br>
+             <label for="hobbies">HOBBIES</label>
+             <input type="checkbox" name="checkbox" id="checkbox">
+             <label for="hobbies">Singing</label>
+             <input type="checkbox" name="checkbox" id="checkbox">
+             <label for="hobbies">Dancing</label>
+             <input type="checkbox" name="checkbox" id="checkbox">
+             <label for="hobbies">Sketching</label>
+             <input type="checkbox" name="checkbox" id="checkbox">
+             <label for="hobbies">Others</label>
+             <br><br>
+
+             <label for="qual">QUALIFICATION</label>
+
+             <table>
+                <tr>
+                    <th>SNo</th>
+                    <th>Examination</th>
+                    <th>Board</th>
+                    <th>Percentage</th>
+                    <th>Year Of Passing</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Class X</td>
+                    <td><input type="text" name="board_x" id="board_x" maxlength="30"></td>
+                    <td><input type="text" name="percent_x" id="percent_x"></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                    <td>1</td>
+                    <td>Class X</td>
+                    <td><input type="text" name="board_x" id="board_x" maxlength="30"></td>
+                    <td><input type="text" name="percent_x" id="percent_x"></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                    <td>1</td>
+                    <td>Class X</td>
+                    <td><input type="text" name="board_x" id="board_x" maxlength="30"></td>
+                    <td><input type="text" name="percent_x" id="percent_x"></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                    <td>1</td>
+                    <td>Class X</td>
+                    <td><input type="text" name="board_x" id="board_x" maxlength="30"></td>
+                    <td><input type="text" name="percent_x" id="percent_x"></td>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td></td> 
+                    <td></td>
+                    <td>(10 char max)</td>
+                    <td>(upto 2 decimal)</td>
+                </tr>
+             </table>
+             <br>
+
+             <label for="course">Courses Applied For:</label>
+             <input type="radio" name="" id="">
+             <label for="">BCA</label>
+ 
+             <input type="radio" name="" id="">
+             <label for="">B.Com</label>
+ 
+             
+             <input type="radio" name="" id="">
+             <label for="">BSc</label>
+             <input type="radio" name="" id="">
+             <label for="">BA</label>
+
+             <br><br>
+
+             <input type="submit" value="Submit">
+             <input type="Reset" value="Reset">
+
+
+        </fieldset>
+    </form>
+</body>
+
+</html>

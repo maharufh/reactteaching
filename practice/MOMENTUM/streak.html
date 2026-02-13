@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Streak Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <h2>Momentum</h2>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="focus.html">Daily Focus</a></li>
+      <li><a href="streak.html">Streak</a></li>
+      <li><a href="review.html">Weekly Review</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>🔥 Your Consistency Streak</h1>
+
+    <section class="card center">
+      <p class="big">🔥 <span id="streakCount">0</span> Days</p>
+      <p class="muted">Complete all 3 daily focus tasks to continue your streak</p>
+    </section>
+
+    <section class="card">
+      <h3>Streak Rules</h3>
+      <ul>
+        <li>✔ Complete all 3 focus tasks</li>
+        <li>✔ Streak updates once per day</li>
+        <li>❌ Missing a day resets the streak</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/streak.js"></script>
+  <script>
+    document.getElementById("streakCount").innerText =
+      localStorage.getItem("streak") || 0;
+  </script>
+
+</body>
+</html>

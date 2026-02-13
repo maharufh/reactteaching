@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h5> Today we will learn about how & when to apply
+        the theory of web dev in practically using todo
+        list app </h5>
+    <div class="container">
+        <input type="text" id="taskInput" placeholder="Enter your task.." autofocus>
+        <button id="btn">Add task</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th> Task You Have to Do</th>
+                <th>Action You Want To Do</th>
+            </tr>
+        </thead>
+        <tbody id="display"></tbody>
+
+        <script>
+            let tasks = [];
+            const inputTag = document.getElementById('taskInput');
+            const btnTag = document.getElementById('btn');
+            const displayTag = document.getElementById('display');
+
+
+            function addTask() {
+                const value = inputTag.value.trim();
+                if (value === '') {
+                    alert("please enter your task");
+                    return;
+                }
+                tasks.unshift(value);
+                inputTag.value = '';
+                display();
+                inputTag.focus();
+            }
+
+            // function for deletethetask
+            function deleteTask(index) {
+                tasks.splice(index, 1);
+                display();
+                inputTag.focus();
+
+
+            }
+
+
+            // to display the tasks below function works
+            function display() {
+                let html = '';
+                tasks.forEach((task, index) => {
+                    html += ` <tr>
+                            <td> ${task} </td>
+                            <td> 
+                                <button class="delete-btn" onclick="deleteTask(${index})"> Delete </button>
+
+                                 </td>
+                            
+
+                            </tr>
+                            `
+                });
+                displayTag.innerHTML = html;
+            }
+
+            btnTag.addEventListener('click', addTask);
+
+
+
+
+
+        </script>
+    </table>
+</body>
+
+</html>

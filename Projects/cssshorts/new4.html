@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background:black;
+    overflow:hidden;
+    font-family: system-ui, sans-serif;
+    color:white;
+}
+
+/* ===================== */
+/* PORTAL */
+/* ===================== */
+.portal{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+}
+
+.ring{
+    width:60vmin;
+    height:60vmin;
+    border-radius:50%;
+    border:6px solid transparent;
+    border-top:6px solid cyan;
+    border-right:6px solid magenta;
+    border-bottom:6px solid gold;
+    animation: spin 2s linear infinite;
+    box-shadow: 0 0 80px cyan;
+    display:grid;
+    place-items:center;
+}
+
+@keyframes spin{
+    to{ transform: rotate(360deg); }
+}
+
+/* ===================== */
+/* COUNTDOWN */
+/* ===================== */
+#countdown{
+    font-size:12vw;
+    font-weight:900;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{ transform: scale(0.8); opacity:0.5; }
+    50%{ transform: scale(1.1); opacity:1; }
+    100%{ transform: scale(0.8); opacity:0.5; }
+}
+
+/* ===================== */
+/* FLASH */
+/* ===================== */
+.flash{
+    position:fixed;
+    inset:0;
+    background:white;
+    opacity:0;
+    pointer-events:none;
+    z-index:5;
+}
+
+.flash.active{
+    animation: flash 0.4s ease;
+}
+
+@keyframes flash{
+    from{opacity:1;}
+    to{opacity:0;}
+}
+
+/* ===================== */
+/* WISH */
+/* ===================== */
+#wish{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    opacity:0;
+    transform: scale(0.5);
+    transition: all 1s ease;
+    z-index:3;
+}
+
+#wish h1{
+    font-size:6vw;
+    letter-spacing:4px;
+}
+
+#wish h2{
+    font-size:14vw;
+    font-weight:900;
+    background:linear-gradient(90deg, gold, orange, deeppink);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow: 0 0 40px gold;
+}
+
+/* ===================== */
+/* FIREWORKS */
+/* ===================== */
+.firework{
+    position:absolute;
+    width:4px;
+    height:4px;
+    bottom:0;
+    animation: rise 2.5s infinite ease-out;
+    z-index:1;
+}
+
+.firework::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    box-shadow:
+        0 -90px gold,
+        70px -70px cyan,
+        90px 0 magenta,
+        70px 70px gold,
+        0 90px cyan,
+        -70px 70px magenta,
+        -90px 0 gold,
+        -70px -70px cyan;
+    animation: explode 2.5s infinite ease-out;
+}
+
+@keyframes rise{
+    0%{ transform: translateY(0); opacity:1;}
+    60%{ transform: translateY(-450px); }
+    100%{ opacity:0;}
+}
+
+@keyframes explode{
+    0%{ transform: scale(0); }
+    60%{ transform: scale(1); }
+    100%{ transform: scale(2); opacity:0;}
+}
+
+.fw1{ left:20%; animation-delay:0s;}
+.fw2{ left:50%; animation-delay:0.8s;}
+.fw3{ left:80%; animation-delay:1.6s;}
+</style>
+</head>
+
+<body>
+
+<div class="portal">
+    <div class="ring">
+        <div id="countdown">10</div>
+    </div>
+</div>
+
+<div id="flash" class="flash"></div>
+
+<div id="wish">
+    <div>
+        <h1>🎆 HAPPY NEW YEAR 🎆</h1>
+        <h2>2026</h2>
+    </div>
+</div>
+
+<div class="firework fw1"></div>
+<div class="firework fw2"></div>
+<div class="firework fw3"></div>
+
+<script>
+let count = 10;
+const cd = document.getElementById("countdown");
+const wish = document.getElementById("wish");
+const flash = document.getElementById("flash");
+const portal = document.querySelector(".portal");
+
+const timer = setInterval(()=>{
+    cd.textContent = count;
+    count--;
+
+    if(count < 0){
+        clearInterval(timer);
+
+        flash.classList.add("active");
+
+        // Hide portal
+        portal.style.display = "none";
+
+        setTimeout(()=>{
+            wish.style.opacity = "1";
+            wish.style.transform = "scale(1)";
+        },300);
+    }
+},1000);
+</script>
+
+</body>
+</html>
+ 

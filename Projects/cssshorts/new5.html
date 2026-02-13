@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    background: radial-gradient(circle at bottom, #020024, #04043a, #000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    font-family: system-ui, sans-serif;
+    color:white;
+}
+
+/* ===================== */
+/* COUNTDOWN NUMBERS */
+/* ===================== */
+.countdown{
+    position:absolute;
+    font-size:20vw;
+    font-weight:900;
+}
+
+.countdown span{
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    opacity:0;
+    animation: show 1s forwards;
+}
+
+/* Each number appears 1 second apart */
+.countdown span:nth-child(1){ animation-delay:0s; }
+.countdown span:nth-child(2){ animation-delay:1s; }
+.countdown span:nth-child(3){ animation-delay:2s; }
+.countdown span:nth-child(4){ animation-delay:3s; }
+.countdown span:nth-child(5){ animation-delay:4s; }
+.countdown span:nth-child(6){ animation-delay:5s; }
+.countdown span:nth-child(7){ animation-delay:6s; }
+.countdown span:nth-child(8){ animation-delay:7s; }
+.countdown span:nth-child(9){ animation-delay:8s; }
+.countdown span:nth-child(10){ animation-delay:9s; }
+
+@keyframes show{
+    0%{ opacity:0; transform: scale(0.5); }
+    10%{ opacity:1; transform: scale(1.2); }
+    50%{ transform: scale(1); opacity:1; }
+    100%{ opacity:0; transform: scale(0.5); }
+}
+
+/* ===================== */
+/* WISH (appears AFTER countdown) */
+/* ===================== */
+.wish{
+    position:absolute;
+    text-align:center;
+    opacity:0;
+    transform:scale(0.5);
+    animation: reveal 1s forwards;
+    animation-delay:10s; /* start AFTER countdown finishes */
+}
+
+@keyframes reveal{
+    0%{ opacity:0; transform:scale(0.5);}
+    100%{ opacity:1; transform:scale(1);}
+}
+
+.wish h1{
+    font-size:5vw;
+    letter-spacing:5px;
+}
+
+.wish h2{
+    font-size:14vw;
+    font-weight:900;
+    background:linear-gradient(90deg, gold, orange, deeppink);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow:0 0 40px gold;
+}
+
+/* ===================== */
+/* FIREWORKS */
+.firework{
+    position:absolute;
+    bottom:0;
+    width:4px;
+    height:4px;
+    animation: rise 2.5s infinite ease-out;
+    z-index:1;
+}
+
+.firework::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    box-shadow:
+        0 -80px gold,
+        60px -60px deeppink,
+        80px 0 gold,
+        60px 60px orange,
+        0 80px gold,
+        -60px 60px deeppink,
+        -80px 0 gold,
+        -60px -60px orange;
+    animation: explode 2.5s infinite ease-out;
+}
+
+@keyframes rise{
+    0%{ transform:translateY(0); opacity:1; }
+    60%{ transform:translateY(-400px); }
+    100%{ opacity:0; }
+}
+
+@keyframes explode{
+    0%{ transform:scale(0); }
+    60%{ transform:scale(1); }
+    100%{ transform:scale(2); opacity:0; }
+}
+
+.fw1{ left:20%; animation-delay:0s; }
+.fw2{ left:50%; animation-delay:1s; }
+.fw3{ left:80%; animation-delay:2s; }
+
+</style>
+</head>
+
+<body>
+
+<!-- COUNTDOWN -->
+<div class="countdown">
+    <span>10</span>
+    <span>9</span>
+    <span>8</span>
+    <span>7</span>
+    <span>6</span>
+    <span>5</span>
+    <span>4</span>
+    <span>3</span>
+    <span>2</span>
+    <span>1</span>
+</div>
+
+<!-- WISH -->
+<div class="wish">
+    <h1>🎆 HAPPY NEW YEAR 🎆</h1>
+    <h2>2026</h2>
+</div>
+
+<!-- FIREWORKS -->
+<div class="firework fw1"></div>
+<div class="firework fw2"></div>
+<div class="firework fw3"></div>
+
+</body>
+</html>

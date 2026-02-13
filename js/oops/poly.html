@@ -1,0 +1,61 @@
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <p>
+
+        this is for polymorphism-one entity different behaviour
+        <p>two type of polymorphism are there
+            1. Compile time - same method with different parameter list(which 
+            is not possible in js)
+            2. runtime - smae method and parameters name with different class
+        </p>
+    </p>
+    this also abstraction- the process of hidding the complex 
+    information and providing only requred functionality to the user 
+    <script>
+        class Car {
+            start(){}
+            accelerate(){};
+            brakes(){};
+
+        }
+        class BMW extends Car {
+            start(){console.log("BMW starts");}
+            accelerate(){console.log("BMW Accelerate");}
+            brakes(){console.log("BMW BRAKES");}
+        }
+        class BENZ extends Car {
+            start(){console.log("BENZ starts");}
+            accelerate(){console.log("BENZ Accelerate");}
+            brakes(){console.log("BENZ BRAKES");}
+        }
+        class Driver{
+            static drive(Car){
+                Car.start();
+                Car.accelerate();
+                Car.brakes();
+            }
+        }
+        class Test {
+            static main(){
+                let b1 = new BMW();
+                Driver.drive(b1);
+                let b2 = new BENZ();
+                Driver.drive(b2);
+
+
+            }
+        }
+        Test.main();
+        let arr = [10,20,30,40]
+        let res = arr.reduce((acc,e,i,a)=>{
+            return acc + e;
+        },0);
+        console.log(res);
+    </script>
+ </body>
+ </html>

@@ -1,0 +1,195 @@
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+
+    <h5>Js Practice</h5>
+    <ol>
+        <!-- <li>What is Function and their type</li>
+        <li>what is identifier? Three Rules of identifiers</li>
+        <li>What is TypeOf?</li>
+        <li>Type of datatypes</li>
+        <li>What is Template literals</li>
+        <li>why we use prompt?</li>
+        <li>what is type casting and their type with examples</li>
+        <li>What is falsy and truthy values and examples</li>
+        <li>Differences between function declaration,expression and arrow function</li>
+        <li>What is return statement?</li>
+        <li>What is Unreachable Statement?</li>
+        <li>what is default and actual parameter?</li>
+        <li>What is Callback Function with examples</li>
+        <li>What is Higher Order Function?</li>
+       <li>  what is anonymous function?</li>
+       <li>Which function is used to create anonymous functions?</li>
+       <li>What is Pure Function</li> 
+       <li>What Is IIFE ?</li>
+       <li>What is First class citizen?</li>
+       <li>Explain JavaScript runtime Environment</li>
+       <li>What is Object? how many ways we can create it?</li>
+       <li>How can we access object properties in js?</li>
+       <li>Differences b/w dot and bracket notation</li>
+       <li>What is Array? How can we create an array</li>
+       <li>What is Execution Context and what are the properties of it?</li>
+       <li>What is Hoisting?</li>
+       <li>what is TDZ?</li>
+       <li>diff b/t break and return keyword</li>
+       <li>What is Argument Object with examples</li>
+      <li>What is Function Overloading?</li>
+      <li>What is Rest and Spread Operater?</li>
+      <li>What is shallow and Deep Copy</li>
+      <li>
+
+          Differences b/w shallow and deep copy
+      </li>
+<li>What is Scope?</li>
+<li>Differences b/w var,let and const keyword</li>
+<li>What is Lexical Environment</li> -->
+
+
+<!-- <h1>Day-1 ⬆️</h1> -->
+<div style="color: red;background-color: yellow; " id="clock"></div>
+<li>What is closure explain with examples</li>
+<li>What is Lexical Scope</li>
+<li>What is Scope Chain</li>
+<li>What is Method</li>
+<li>Explain This Keyword</li>
+<li>Explain "Use Strict"</li>
+<li>What is Function Constructor
+    <li>What is Prototype</li> 
+    <li>What is Prototypal Chain?</li>
+    <li>What is Instance ?</li>
+    <li>How can we create instance? with example</li>
+    <li>what is call method? </li>
+    <li>what is apply method?</li>
+    <li>what is bind method?</li>
+    <li>call vs apply vs  bind</li>
+    <li>why we use bind if call method is doing the similar task?</li>
+    <li>OOPS concept has been already discussed</li>
+    <li>What is DOM</li>
+    <li>What is Destructuring?</li>
+    <li>Js is synchronus or asynchronus language?</li>
+    <li>what is Synchronus language</li>
+    <li>js is single or multipl thread language?</li>
+    <li>What is SetTimeout function? Explain with Exampleples</li>
+    <li>What is Setinterval and clearInterval</li>
+    <li>what is promise with examples</li>
+    <li>what is fetch api</li>
+    <li>what is resolve and reject</li>
+    <li>what is then ,catch and finaaly method?</li>
+    <li>what is try and catch</li>
+    <li>What is Error Handling</li>
+    <li>What is Async and Await</li>
+    <li>What is Module?</li>
+    <li>What is name and default export?</li>
+    <li>What is Clas Based Programming?</li>
+    <li>what are the methods in clss based programming</li>
+
+    <li>Type of variable in class based programming</li>
+</li>
+
+<h1>Day-2     ⬆️</h1>
+    </ol>
+    
+
+    <script>
+        setInterval(()=>clock.innerHTML=new Date().toLocaleTimeString(),1000);
+        //callback function
+//         function greet(name, callback) {
+//     console.log("Hello " + name);
+//     callback();
+// }
+
+// function callback() {
+//     console.log("Goodbye!");
+// }
+
+// greet("Ravi", callback);
+
+//function overloading
+// function add(a,b){
+//     console.log(a+b);
+// }
+// function add(a,b,c){
+//     console.log(
+//         a+b+c
+//     );
+// }
+// add(10,12,45);
+// add(10,20,30);
+
+//closure
+ 
+// function main(){
+//     let n1 = 20;
+//     function m1(){
+//         let n2 = 30;
+//         console.log(n1);
+//     }
+//     return m1;
+// }
+// let retVal = main();
+// console.log(retVal);
+// retVal();
+
+// example with setTimeout
+
+// function greet(){
+//     let name = "Maharufh";
+
+//     setTimeout(function(){
+//         console.log("Hello " + name);
+//     },1000)
+// }
+// greet();
+
+//lexical scope
+// let a = 10;
+// function outer(){
+//     let b = 20;
+
+
+//     function inner(){
+//         console.log(a);
+//         console.log(b);
+//     }
+//     inner();
+// }
+// outer();
+// let s1 = {id:101,name:"mam",year:2002};
+// let s2 = {id:102,name:'Maharufh',year:2003};
+
+// function calcAge(a,b){
+//     console.log(this);
+//     console.log(a,b);
+// }
+// calcAge();
+// calcAge.call(s1,10,20);
+// calcAge.call(s1,10,20);
+// calcAge.call(s2,10,20);
+// calcAge.apply(s1,[10,20]);
+// let retFn = calcAge.bind(s1,2,4);
+// console.log(retFn);
+// retFn()
+// retFn()
+// retFn()
+
+function greet(name) {
+    console.log("Hello " + name);
+}
+greet('Maharufh')
+setTimeout(greet, 3000, "Aman");
+for(let i = 0; i <= 100;i++){
+    console.log(i);
+}
+setTimeout(greet, 1000, "Aahan");
+greet('Maharufh')
+
+
+
+ 
+    </script>
+ </body>
+ </html>

@@ -1,0 +1,42 @@
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    encapsulation - the process of binding or wrapping data & methods together into a 
+    single unit is encapsulation 
+    we can protect data by restricting direct access using
+     private fields(#),getter and setter
+     <script>
+      class BankAccount {
+    #transaction = [];
+
+    constructor(id, name, pw) {
+        this.id = id;
+        this.name = name;
+        this.pw = pw;
+    }
+
+    deposit(amt) {
+        this.#transaction.push(amt);
+    }
+
+    getTransactions() {
+        return this.#transaction;  
+        
+        
+
+    }
+}
+
+let a1 = new BankAccount(101, "Maharufh", "21@3afA");
+
+a1.deposit(300);
+
+console.log(a1.getTransactions());    
+
+     </script>
+ </body>
+ </html>

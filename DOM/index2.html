@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h5>html dom last lecture</h5>
+   
+    <p> How to add a new html element</p>
+    <div id="div1">
+      <p id="p1">This is Paragraph</p>
+      <p id="p2">This is another Paragraph</p>
+      <p id="demo"></p>
+    </div>
+    <button onclick="myFunction()" >Remove</button>
+    <script>
+      // let para = document.createElement('p');
+      // let node = document.createTextNode("this is new one");
+      // para.appendChild(node);
+      // let element = document.getElementById('div1')
+      // let child = document.getElementById('p2')
+      // element.insertBefore(para,child)
+    // function myFunction(){
+    //   document.getElementById('p1').remove();
+    // }
+
+    // const parent = document.getElementById('div1');
+    // const child = document.getElementById('p1');
+    // const para = document.createElement('p');
+    // const node = document.createTextNode("This is new Maharufh")
+    // para.appendChild(node);
+    // parent.replaceChild(para,child);
+    const myCollection = document.getElementsByTagName('p');
+
+    document.getElementById('demo').innerHTML = " the length of p element is:" + myCollection.length;
+    </script>
+ </body>
+     
+</html>

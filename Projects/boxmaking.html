@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorpicker</title>
+    <style>
+        #box {
+            height: auto;
+            margin-top: 20px ;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .smallbox {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Today We will build box maker - Project 2</h4>
+    <!-- <p> task: there will be two button one is start/stop and another one reset
+        now when the html page is loaded then the every 1 or 2 sec small ,small box will be
+        created each box should be with different different random color and the start/stop button
+        should be seen in stop when the box are crwating .once we click the stop button it will stop
+        and it will be start in text if we again click the start button then the box creations
+        will start again where it was stop earlier not form begining and in reset button the display
+        will be blank;</p> -->
+    <button id="ss" onclick="startStop()">
+        Start
+    </button>
+    <button id="r" onclick="reset()">Reset</button>
+    <div id="box"></div>
+
+    <script>
+        let ssBtn = document.getElementById('ss');
+        let box = document.getElementById('box');
+
+        let interval;
+        let isRunning = true;
+
+        function createBox() {
+            let div = document.createElement('div');
+            div.classList.add("smallbox");
+
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+
+            div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            box.appendChild(div);
+        }
+        interval = setInterval(createBox,100);
+
+        function startStop(){
+            if(isRunning){
+                clearInterval(interval);
+                ssBtn.textContent = "Start";
+                isRunning = false;
+            }else{
+                interval = setInterval(createBox,1000);
+                ssBtn.textContent = 'Stop';
+                isRunning = true;
+            }
+        }
+
+        function reset(){
+            clearInterval(interval);
+            box.innerHTML = "";
+            ssBtn.textContent = 'Start';
+            isRunning = false;
+        }
+    </script>
+</body>
+
+</html>

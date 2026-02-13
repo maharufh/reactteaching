@@ -1,0 +1,11 @@
+<h2>Weekly Review</h2>
+
+<p>Active Days: <span id="days"></span></p>
+<p>Tasks Completed: <span id="tasks"></span></p>
+
+<script src="js/review.js"></script>
+<script>
+  const week = JSON.parse(localStorage.getItem("week"));
+  document.getElementById("days").innerText = week.days.length;
+  document.getElementById("tasks").innerText = week.tasks;
+</script>

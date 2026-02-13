@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Today we will learn   web storage  api</h1>
+    <p id="demo"></p>
+    <!-- <p>Enter a number and click OK:</p>
+
+<input id="id1" type="number" max="100">
+<button onclick="myFunction()">OK</button>
+
+<p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let text;
+  if (document.getElementById("id1").validity.rangeOverflow) {
+    text = "throwing an error";
+  } else {
+    text = "Input OK";
+  } 
+  document.getElementById("demo").innerHTML = text;
+} -->
+<!-- <p>Enter a number and click OK:</p>
+
+<input id="id1" type="number" min="100">
+<button onclick="myFunction()">OK</button>
+
+<p>If the number is less than 100 (the input's min attribute), an error message will be displayed.</p>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  let text;
+  if (document.getElementById("id1").validity.rangeUnderflow) {
+    text = "Value too small";
+  } else {
+    text = "Input OK";
+  } 
+  document.getElementById("demo").innerHTML = text;
+} -->
+  
+
+  
+  <!-- <button onclick="myFunction()">Go Back</button>
+
+<script>
+function myFunction() {
+  window.history.back();
+} -->
+  <!-- <button onclick="myFunction()">Go Back 5 Pages</button>
+
+<script>
+function myFunction() {
+  window.history.go(-5);
+}
+</script>
+</script>
+</script>
+</script>
+</script> -->
+<script>
+localStorage.setItem("name","Maharufh Ali");
+document.getElementById("demo").innerHTML = localStorage.getItem("name");
+sessionStorage.setItem("name","Maharufh Ali");
+document.getElementById("demo").innerHTML = sessionStorage.getItem("name");
+
+</script>
+
+</body>
+</html>

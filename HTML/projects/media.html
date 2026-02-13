@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h5>Today we will learn about html multimedia</h5>
+    <div style="text-align:center">
+        <button onclick="playPause()">Play/Pause</button>
+        <button onclick="makeBig()">Big</button>
+        <button onclick="makeSmall()">Small</button>
+        <button onclick="makeNormal()">Normal</button>
+        <br><br>
+        <!-- <video id="video1" width="200" height="250" controls>
+            <source src="/realnumber.MOV">
+        </video>
+        <video width="200" height="250" autoplay muted>
+            <source src="/macmini.MOV" type="video/mp4">
+        </video>
+        <audio controls>
+            <source src="/test2.mp3">
+        </audio> -->
+        <!-- <audio autoplay muted >
+    <source src="/test2.mp3">
+</audio> -->
+        <!-- <iframe src="https://youtu.be/gImF1Tmo0Hc?si=0ndy_zslxpf7EmhD" 
+frameborder="0"></iframe> -->
+        <iframe width="260" height="195" src="https://www.youtube.com/embed/gImF1Tmo0Hc?si=cP_d-zMOANGxJSKm"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin controls=1" ? 
+              
+             ></iframe>
+    </div>
+    <script> mb
+        var myVideo = document.getElementById("video1");
+
+        function playPause() {
+            if (myVideo.paused)
+                myVideo.play();
+            myVideo.pause();
+           
+        }
+
+        function makeBig() {
+            myVideo.width = 560;
+        }
+
+        function makeSmall() {
+            myVideo.width = 320;
+        }
+
+        function makeNormal() {
+            myVideo.width = 420;
+        } 
+    </script>
+</body>
+
+</html>

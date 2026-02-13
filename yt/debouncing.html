@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> debouncing</h2>
+    <input type="text" id="search" placeholder="search something">
+    <script>
+
+        function debounce(fn,delay){
+            let timer;
+            return function(...args){
+                clearTimeout(timer);
+                timer = setTimeout(()=>{
+                    fn(...args);
+                },delay)
+            };
+        }
+
+        function search(e){
+            console.log("search ApI called with :", e.target.value);
+        }
+        const debouncedSearch = debounce(search,50);
+        document.getElementById("search").addEventListener("keyup",debouncedSearch);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2> pure functions</h2>
+    <script>
+ function PureF(a,b){
+    return a + b ;
+
+ }
+ console.log("the Addoton is :", PureF(10,20));
+ function ImpureF(n){
+    return n * n;
+ }
+ console.log("the squre is :", ImpureF(2));
+ let count = 0;
+ function CountF(n){
+    count += n;
+    return count;
+ }
+ console.log("the count is:", CountF(10));
+ console.log("the count is:", CountF(1));
+    </script>
+</body>
+
+</html>

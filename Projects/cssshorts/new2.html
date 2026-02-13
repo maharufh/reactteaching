@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New Year Time Burst</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #000428, #000);
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+}
+
+/* ================= */
+/* ⏳ COUNTDOWN */
+/* ================= */
+.count {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.1);
+    animation: countFade 6s infinite;
+}
+
+@keyframes countFade {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ================= */
+/* ⚡ TIME CRACK */
+/* ================= */
+.crack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to bottom, transparent, gold, transparent);
+    transform: translate(-50%, -50%);
+    animation: crackOpen 6s infinite;
+}
+
+@keyframes crackOpen {
+    60% { height: 0; opacity: 0; }
+    70% { height: 300px; opacity: 1; }
+    80% { height: 600px; }
+    100% { opacity: 0; }
+}
+
+/* ================= */
+/* 🌊 LIGHT WAVE */
+/* ================= */
+.wave {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 70%);
+    transform: scale(0);
+    animation: waveExpand 6s infinite;
+}
+
+@keyframes waveExpand {
+    70% { transform: scale(0); }
+    85% { transform: scale(2.5); }
+    100% { opacity: 0; }
+}
+
+/* ================= */
+/* ✨ GOLD DUST */
+/* ================= */
+.dust {
+    position: absolute;
+    bottom: -20px;
+    width: 4px;
+    height: 4px;
+    background: gold;
+    border-radius: 50%;
+    animation: rise 4s infinite linear;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* ================= */
+/* 🎉 FINAL TEXT */
+/* ================= */
+.text {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, gold, orange, deeppink);
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: reveal 6s infinite;
+}
+
+@keyframes reveal {
+    80% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ================= */
+/* RANDOM DUST */
+/* ================= */
+.d1 { left: 10%; animation-delay: 2s; }
+.d2 { left: 30%; animation-delay: 2.3s; }
+.d3 { left: 50%; animation-delay: 2.6s; }
+.d4 { left: 70%; animation-delay: 2.9s; }
+.d5 { left: 90%; animation-delay: 3.2s; }
+
+/* ⚡ PERFORMANCE */
+.count, .crack, .wave, .dust, .text {
+    will-change: transform, opacity;
+}
+</style>
+</head>
+
+<body>
+
+<div class="count">00</div>
+
+<div class="crack"></div>
+<div class="wave"></div>
+
+<div class="dust d1"></div>
+<div class="dust d2"></div>
+<div class="dust d3"></div>
+<div class="dust d4"></div>
+<div class="dust d5"></div>
+
+<div class="text">✨ HAPPY NEW YEAR 2025 ✨</div>
+
+</body>
+</html>

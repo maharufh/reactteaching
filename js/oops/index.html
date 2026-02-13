@@ -1,0 +1,124 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Today we will learn some most asked js interview questions-starting
+        with oops concept
+    </h2>
+      <ol>
+        <li>What is constructor overloading?</li>
+      <p>Constructor overloading means creating multiple constructors
+        in the same class with the same name but different parameters.
+        refer - example 5
+      </p>
+    </ol>
+
+    <li>
+        <ol> <li>
+
+            what is inheritnce with example</ol>
+            <p> Inheritance is the process of acquiring properties and methods of one class (parent) into another class
+                (child).
+            </p>
+        </li>
+        
+        <ol>
+                <li>
+                what is Method overriding?
+                <p> ==>> when child class has a method with a same name as
+                    parent class, & child's class method replace(overrides)
+                    the parent's method then it's called method overriding
+                    refer example 3 for this
+                </p>
+            </ol>
+        </li>
+
+
+        <ol>what is Method overloading?(though it is not possible)</ol>
+        <p>==> where multiple methods have the same name but different 
+            parameters(different number,type,or order of arguments)within 
+            the same class is called method overloading - refer example-4 
+            for this
+        </p>
+    </li>
+  
+    <script>
+        //example-1
+        //    class Person {
+        //         constructor(id,name,sal){
+        //             this.id = id;
+        //             this.name = name;
+        //         }
+        //     } 
+        // class Employee extends Person {
+        //     constructor(id,name,sal){
+        //         super(id,name);
+        //         this.sal = sal;
+        //     }
+        // }
+        // class Test {
+        //     static main (){
+        //         let c1 = new Employee(101,'Maharufh',30000);
+        //         console.log(c1);
+        //     }
+        // }
+        // Test.main();
+
+        // //example-2
+        // class Basic {
+        //     sum(a,b){
+        //         console.log('Addtion of two number is ' + (a+b));
+        //     }
+        // }
+        // class Advance extends Basic{
+        //     sub(a,b){
+        //         console.log("Subtraction of Two number is :" + (a-b));
+        //     }
+        // }
+        // let a1 = new Advance();
+        // a1.sum(15,2);
+        // a1.sub(14,2);
+        // #Example-3
+        // class Teacher {
+        //     teach(){
+        //         console.log("Teacher Teaches subject");
+        //     }
+        // }
+        // class Maharufh extends Teacher {
+        //     teach(){
+        //         console.log("Maharufh Teaches Development");
+        //     }
+        // }
+        // let r1 = new Maharufh();
+        // r1.teach();
+        //#example 4
+        // class calc {
+        //     sum(a,b){
+        //         console.log(a+b);
+        //     }
+        //     sum(a,b,c){
+        //         console.log(a+b+c);
+        //     }
+        // }
+        // let c = new calc();
+        // sum(2.3);
+        // #example-5
+        class calc {
+            constructor(){
+                console.log("default constructor is running");
+            }
+            constructor(name){
+                console.log('parameterized contructor is running');
+            }
+        }
+       new calc(); 
+       new calc(name);     
+    </script>
+</body>
+
+</html>

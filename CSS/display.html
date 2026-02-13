@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            background-color: yellow;
+            display: inline;
+        }
+
+        span {
+            background-color: aqua;
+        }
+        #panel, .show {
+            padding: 10px;
+            text-align: center;
+            background-color: aqua;
+            /* color: white; */
+            border: 2px solid grey;
+            cursor: pointer;
+        }
+
+        #panel {
+            display: none;
+        }
+        a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        Now we will learn about css display
+    </h2>
+    <a href="#">hii</a>
+    <p class="show" onclick="myFunction()">Show the hidden part</p>
+    <div id="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, magnam maiores repudiandae quo officiis
+            quod qui odio harum soluta. Nobis!</p>
+            <p>dfghj</p>
+            <h3>dsfghjk</h3>
+    </div>
+    <script>
+        function myFunction(){
+            document.getElementById("panel").style.display = "block"
+        }
+    </script>
+</body>
+
+</html>

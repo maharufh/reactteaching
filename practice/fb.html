@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Facebook Clone • Clean 2025</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root {
+    --fb-blue: #1877f2;
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --text: #050505;
+    --gray: #65676b;
+    --light-gray: #e4e6eb;
+    --hover: rgba(0,0,0,0.05);
+}
+
+body.dark {
+    --bg: #18191a;
+    --card: #242526;
+    --text: #e4e6eb;
+    --gray: #b0b3b8;
+    --light-gray: #393a3b;
+    --hover: rgba(255,255,255,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.4;
+}
+
+/* Top bar */
+.topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: var(--card);
+    border-bottom: 1px solid var(--light-gray);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 100;
+}
+
+.logo { color: var(--fb-blue); font-size: 2.4rem; font-weight: bold; text-decoration: none; }
+
+.search { 
+    flex: 0 0 360px; 
+    margin: 0 16px; 
+    position: relative; 
+}
+
+.search input {
+    width: 100%;
+    height: 40px;
+    border-radius: 999px;
+    border: none;
+    background: var(--light-gray);
+    padding-left: 44px;
+    color: var(--text);
+}
+
+.search i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gray); }
+
+.menu { 
+    display: flex; 
+    gap: 8px; 
+    flex: 1; 
+    justify-content: center; 
+    max-width: 580px; 
+}
+
+.menu-item {
+    width: 112px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.menu-item.active, .menu-item:hover { color: var(--fb-blue); }
+
+.menu-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 3px;
+    background: var(--fb-blue);
+    border-radius: 2px 2px 0 0;
+}
+
+.right-icons { display: flex; gap: 10px; align-items: center; }
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; }
+
+/* Layout */
+.container {
+    display: flex;
+    max-width: 1300px;
+    margin: 70px auto 0;
+    gap: 24px;
+    padding: 20px 16px;
+}
+
+aside { width: 300px; position: sticky; top: 70px; height: calc(100vh - 70px); overflow-y: auto; }
+
+main { flex: 1; max-width: 600px; }
+
+.right { width: 300px; position: sticky; top: 70px; height: calc(100vh - 70px); }
+
+/* Common card */
+.card {
+    background: var(--card);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+}
+
+/* Stories */
+.stories {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.story {
+    width: 110px;
+    height: 190px;
+    background-size: cover;
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.story::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 4px solid var(--fb-blue);
+    border-radius: 12px;
+}
+
+.story-name {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    text-shadow: 0 1px 3px black;
+}
+
+/* Create post & Post */
+.create-post, .post { padding: 12px 16px; }
+
+.create-placeholder {
+    flex: 1;
+    background: var(--light-gray);
+    border-radius: 999px;
+    padding: 12px 16px;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.create-actions {
+    display: flex;
+    margin-top: 12px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.action { flex: 1; padding: 10px; text-align: center; color: var(--gray); cursor: pointer; }
+
+.action:hover { background: var(--hover); }
+
+.post-text { margin: 12px 0; }
+
+.post-image img { width: 100%; border-radius: 8px; }
+
+.post-stats { 
+    display: flex; 
+    justify-content: space-between; 
+    color: var(--gray); 
+    padding: 8px 0; 
+    border-bottom: 1px solid var(--light-gray); 
+}
+
+.post-actions { display: flex; }
+
+.post-action {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    color: var(--gray);
+    cursor: pointer;
+}
+
+.post-action:hover { background: var(--hover); }
+
+.post-action.liked { color: var(--fb-blue); }
+
+.like-count { font-weight: bold; margin-left: 4px; }
+
+/* Dark mode adjustments */
+body.dark .card,
+body.dark .topbar,
+body.dark .search input,
+body.dark .create-placeholder {
+    background: var(--card);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+    <a href="#" class="logo">facebook</a>
+    <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search Facebook">
+    </div>
+    <div class="menu">
+        <div class="menu-item active"><i class="fa-solid fa-house"></i></div>
+        <div class="menu-item"><i class="fa-solid fa-tv"></i></div>
+        <div class="menu-item"><i class="fa-solid fa-store"></i></div>
+        <div class="menu-item"><i class="fa-solid fa-users"></i></div>
+    </div>
+    <div class="right-icons">
+        <div class="icon-btn theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></div>
+        <div class="profile">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <aside>
+        <div class="card" style="padding:12px">
+            <div style="display:flex; gap:12px; align-items:center;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60" style="border-radius:50%;">
+                <strong>Maharufh</strong>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="card stories">
+            <div class="story" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400')">
+                <div class="story-name">Your Story</div>
+            </div>
+            <div class="story" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400')">
+                <div class="story-name">Sarah</div>
+            </div>
+        </div>
+
+        <div class="card create-post">
+            <div style="display:flex; gap:12px;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60" style="border-radius:50%;">
+                <div class="create-placeholder" id="createPost">What's on your mind, Maharufh?</div>
+            </div>
+            <div class="create-actions">
+                <div class="action"><i class="fa-solid fa-video" style="color:red"></i> Live</div>
+                <div class="action"><i class="fa-solid fa-images" style="color:green"></i> Photo</div>
+                <div class="action"><i class="fa-solid fa-face-smile" style="color:gold"></i> Feeling</div>
+            </div>
+        </div>
+
+        <div class="card post">
+            <div style="display:flex; gap:12px; padding:12px 0;">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60" style="border-radius:50%;">
+                <div>
+                    <strong>Sarah Wilson</strong><br>
+                    <small style="color:var(--gray)">2h · <i class="fa-solid fa-earth-asia"></i></small>
+                </div>
+            </div>
+            <div class="post-text">Weekend vibes! 🌊☀️</div>
+            <div class="post-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800" alt=""></div>
+            <div class="post-stats">
+                <span><span class="like-count">2.4K</span> Likes</span>
+                <span>89 Comments</span>
+            </div>
+            <div class="post-actions">
+                <div class="post-action like-btn"><i class="fa-solid fa-thumbs-up"></i> Like</div>
+                <div class="post-action"><i class="fa-solid fa-comment"></i> Comment</div>
+                <div class="post-action"><i class="fa-solid fa-share"></i> Share</div>
+            </div>
+        </div>
+    </main>
+
+    <div class="right">
+        <div class="card" style="padding:16px">
+            <h4>Sponsored</h4>
+            <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=300" style="width:100%; border-radius:8px; margin:12px 0;">
+        </div>
+    </div>
+</div>
+
+<script>
+// Dark mode toggle
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.innerHTML = document.body.classList.contains('dark') 
+        ? '<i class="fa-solid fa-sun"></i>' 
+        : '<i class="fa-solid fa-moon"></i>';
+});
+
+// Simple like toggle
+document.querySelector('.like-btn').addEventListener('click', function() {
+    this.classList.toggle('liked');
+});
+
+// Create post trigger
+document.getElementById('createPost').addEventListener('click', () => {
+    alert("Post likh de bhai... (real mein yaha modal khulega)");
+});
+</script>
+
+</body>
+</html>

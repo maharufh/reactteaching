@@ -1,0 +1,22 @@
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+<h2> event propogation</h2>
+<p> event propogation is the process by which an event 
+    travels through the DOM in capturing,target,
+and bubbling phases </p>
+<p> so propogates means spreading or moving from one element to another</p>
+<a href="https://www.google.com/" id="link">Google</a>
+<script>
+    document.getElementById("link").addEventListener('click', (e)=>{
+        e.preventDefault();
+        console.log("yes, i m clicked");
+
+    })
+</script>
+ </body>
+ </html>
