@@ -16,6 +16,7 @@ function App() {
     <>
 
     <h2> I am app compo</h2>
+    <h3> sencond time</h3>
     <Timer/>
     </>
   );
