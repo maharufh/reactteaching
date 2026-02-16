@@ -1,5 +1,8 @@
 import React, {  } from "react";
-import Timer from "./components/useeffect/Timer";
+import WithoutCallbackExample from "./components/usecallback/WithoutCallbackExample";
+import WithCallBackExample from "./components/usecallback/WithCallBackExample";
+import ExpensiveDemo from "./components/usecallback/ExpensiveDemo";
+ 
 
  
  
@@ -15,9 +18,10 @@ function App() {
     // </UserContext.Provider>
     <>
 
-    <h2> I am app compo</h2>
-    <h3> sencond time</h3>
-    <Timer/>
+   {/* <WithoutCallbackExample/> */}
+ <ExpensiveDemo/>
+   
+
     </>
   );
 }
