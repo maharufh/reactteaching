@@ -1,28 +1,19 @@
-import React, {  } from "react";
-import WithoutCallbackExample from "./components/usecallback/WithoutCallbackExample";
-import WithCallBackExample from "./components/usecallback/WithCallBackExample";
-import ExpensiveDemo from "./components/usecallback/ExpensiveDemo";
- 
+import { Provider } from "react-redux";
+import store from "./store";
 
- 
- 
+import Home from "./Home";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+
 function App() {
- 
-
   return (
-
-
-    // <UserContext.Provider value={user}>
-    //   <h2> i m component one so hello {user}</h2>
-    //   <Component3 />
-    // </UserContext.Provider>
-    <>
-
-   {/* <WithoutCallbackExample/> */}
- <ExpensiveDemo/>
-   
-
-    </>
+    <Provider store={store}>
+      <Navbar />
+      <Sidebar />
+      <Home />
+      <Footer />
+    </Provider>
   );
 }
 
