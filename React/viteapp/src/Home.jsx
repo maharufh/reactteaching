@@ -1,23 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "./counterSlice";
+import useFetch from "./components/customhook/useFetch";
 
 function Home() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-
-  console.log("Home Rendered");
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
 
   return (
     <>
-      <h2>Home Count: {count}</h2>
-
-      <button onClick={() => dispatch(increment())}>
-        Increment
-      </button>
-
-      <button onClick={() => dispatch(decrement())}>
-        Decrement
-      </button>
+      {data &&
+        data.map((item) => (
+          <p key={item.id}>{item.title}</p>
+        ))}
     </>
   );
 }

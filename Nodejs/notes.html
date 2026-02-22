@@ -413,16 +413,20 @@ Applications of Express.js
 request object
 
 In Express.js, the request object, often abbreviated as req, represents the incoming HTTP request made by a client to the server.
-It is a fundamental component in handling requests and accessing information sent from the client. The req object is automatically created by Express and passed as the first argument to route handler functions and middleware.
+It is a fundamental component in handling requests and accessing information sent from the client. The req object is automatically created by
+ Express and passed as the first argument to route handler functions and middleware.
 
 
 Here are some of the key properties of the req object and their uses:
 
-req.params: Contains named route parameters as defined in the route path. For example, in a route app.get('/users/:id'), req.params.id would hold the value of id from the URL.
+req.params: Contains named route parameters as defined in the route path. For example, in a route app.get('/users/:id'), req.params.id would
+hold the value of id from the URL.
 
-req.query: Contains key-value pairs of the query string parameters (GET parameters) found in the URL. For instance, in app.get('/search?name=john&age=30'), req.query.name would be 'john' and req.query.age would be '30'.
+req.query: Contains key-value pairs of the query string parameters (GET parameters) found in the URL. For instance, in app.get('/search?name=john&age=30'),
+ req.query.name would be 'john' and req.query.age would be '30'.
 
-req.body: Contains key-value pairs of data submitted in the request body, typically used with POST and PUT requests. This property is usually populated when using body-parsing middleware like express.json() or express.urlencoded().
+req.body: Contains key-value pairs of data submitted in the request body, typically used with POST and PUT requests. This property is usually populated
+ when using body-parsing middleware like express.json() or express.urlencoded().
 
 req.headers: An object containing the HTTP headers sent by the client. For example, req.headers['user-agent'] would provide information about the client's browser. 
 
@@ -482,7 +486,8 @@ res.render(view [, locals] [, callback]): Renders a view template and sends the 
 
 HTTP
 
-Hypertext Transfer Protocol (HTTP) is an application-layer protocol used for transferring hypermedia documents, such as HTML. It is primarily designed for communication between web browsers and web servers.
+Hypertext Transfer Protocol (HTTP) is an application-layer protocol used for transferring hypermedia documents, such as HTML. It is primarily
+ designed for communication between web browsers and web servers.
 
 It is the main way web browsers and servers communicate to store and retrieve information on the internet.
 
@@ -505,7 +510,8 @@ A REST API provides a flexible and lightweight way to integrate web applications
 
 
 HTTP Headers
-HTTP headers allow the client and the server to pass additional information along with an HTTP request or response. An HTTP header consists of a case-insensitive name, followed by a colon (:), and then the header value.
+HTTP headers allow the client and the server to pass additional information along with an HTTP request or response. An HTTP header consists of
+ a case-insensitive name, followed by a colon (:), and then the header value.
 
 Example:  Content-Type: application/json
 
