@@ -1,15 +1,18 @@
+import MyForm from "./components/froms/MyForm";
+
  
  
 
  
-import Home from "./Home";
+ 
  
 
 function App() {
  
   return (
      
-      <Home />
+      // <Home />
+      <MyForm/>
      
   );
 }
