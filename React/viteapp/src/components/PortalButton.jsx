@@ -1,26 +1,25 @@
- import {createPortal} from 'react-dom'
+import { createPortal } from 'react-dom';
 
- function PortalButton ({
-    onClick,children
- }){
-    
-    return createPortal(
-        <button onClick={onClick} style={{
-            position:'fixed',
-            
-            right:"20",
-            bottom:"20",
-           padding:"10px",
-            display:'flex',
-            background: 'blue',
-            color: 'white'
-          
-        }}>
+function PortalButton({ onClick, children }) {
+  return createPortal(
+    <button
+      onClick={onClick}
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        padding: '10px 15px',
+        background: 'blue',
+        color: 'white',
+        border: 'none',
+        borderRadius: '6px',
+        cursor: 'pointer'
+      }}
+    >
+      {children}
+    </button>,
+    document.body
+  );
+}
 
-
-            {children}
-        </button>,
-          
-     document.body
-    )
- } export default PortalButton;
+export default PortalButton;
