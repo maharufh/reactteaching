@@ -1,38 +1,23 @@
-import { useState } from 'react';
-import PortalButton from './components/PortalButton';
-
-function App() {
-  const [count1, setCount1] = useState(0);
-  const [count2, setCount2] = useState(0);
-
-  return (
-    <div
-      style={{
-        padding: '20px',
-        border: '2px solid black',
-        margin: '20px'
-      }}
-      onClick={() => {
-        setCount1(c => c + 1);
-      }}
-    >
-      <h2>Div Clicked: {count1}</h2>
-      <h2>Button Clicked: {count2}</h2>
-
-      <p>
-        Floating button portal ke through document.body me render ho raha hai,
-        lekin React tree same hai — isliye bubbling kaam karegi.
-      </p>
-
-      <PortalButton
-        onClick={() => {
-          setCount2(c => c + 1);
-        }}
-      >
-        Floating Button
-      </PortalButton>
-    </div>
-  );
-}
-
-export default App;
+ import React from 'react'
+import Fruits from './components/suspense/Fruits'
+import { Suspense , lazy} from 'react'
+import Bike from './components/suspense/Bike'
+ 
+ function App() {
+  const Bikes = lazy(() => import('./components/suspense/Bike'))
+  const Fruits = lazy(() => import('./components/suspense/Fruits'))
+   return (
+     <>
+     <Suspense fallback = {
+      <div>
+        Loading....
+      </div>
+     } >
+      <Bike/>
+      <Fruits/>
+     </Suspense>
+     </>
+   )
+ }
+ 
+ export default App
