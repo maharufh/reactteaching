@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account</title>
+  <link rel="stylesheet" href="../style/delete.css" />
+</head>
+
+<body class="danger-page">
+
+  <!-- Navbar -->
+  <header>
+    <div class="container nav-container">
+      <div class="logo">MyWebsite</div>
+      <nav>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/signup">Sign up</a>
+        <a href="/login">Login</a>
+        <a href="/password">Change Password</a>
+        <a href="/delete">Delete Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Delete Section -->
+  <section class="section">
+    <div class="container">
+      <div class="card danger-card">
+        <h1>Delete Account</h1>
+        <p class="warning-text">
+          ⚠ This action is permanent. Once deleted, your account cannot be recovered.
+        </p>
+
+        <form>
+          <input type="text" placeholder="Enter Email" id="email" />
+          <input type="password" placeholder="Enter Password" id="pswd" />
+          <button type="submit" id="submit" class="danger-btn">
+            Delete My Account
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let emailTag = document.getElementById("email");
+    let pswdTag = document.getElementById("pswd");
+    let submitbtn = document.getElementById("submit");
+
+    submitbtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      if (emailTag.value == "" || pswdTag.value == "") {
+        return alert("Input fields are mandatory.");
+      }
+
+      let det = {
+        email: emailTag.value,
+        password: pswdTag.value,
+      };
+
+      emailTag.value = "";
+      pswdTag.value = "";
+
+      try {
+        let res = await fetch("/delete", {
+          method: "DELETE",
+          body: JSON.stringify(det),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        let data = await res.json();
+        alert(data.message);
+      } catch (err) {
+        console.log(err.message);
+      }
+    });
+  </script>
+
+</body>
+</html>

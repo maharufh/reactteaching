@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <header>
+        <div class="container nav-container">
+            <h2 class="logo">My App</h2>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/about">About</a>
+                <a href="/signup">SignUp</a>
+                <a href="/login">Login</a>
+                <a href="/password">Change Password</a>
+                <a href="/delete">Delete</a>
+            </nav>
+
+        </div>
+     </header>
+
+    
+     <section>
+        <div>
+            <p>Login To Continue</p>
+
+            <form id="loginForm">
+                <input type="text" placeholder="Enter Email " id="email"/>
+                <input type="password" placeholder="enter your password" id="password"/>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+     </section>
+  <script>
+        let emailTag = document.getElementById('email');
+         
+        let passTag = document.getElementById('password');
+        let form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if(emailTag.value === "" ||  passTag.value === ""){
+                return alert('All fields are required')
+            }
+
+            let user = {
+                email:emailTag.value,
+                password:passTag.value
+                 
+            }
+            try {
+                let res = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify(user)
+                });
+                let data = await res.json();
+                alert(data.message);
+
+
+                emailTag.value = "";
+                passTag.value = "";
+                
+
+
+            } catch (error) {
+                console.log(error);
+            }
+        })
+     </script>
+</body>
+</html>

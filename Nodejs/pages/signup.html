@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/signup.css">
+</head>
+<body>
+  <header>
+        <div class="container nav-container">
+            <h2 class="logo">My App</h2>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/about">About</a>
+                <a href="/signup">SignUp</a>
+                <a href="/login">Login</a>
+                <a href="/password">Change Password</a>
+                <a href="/delete">Delete</a>
+            </nav>
+
+        </div>
+     </header>
+
+     <section>
+        <div class="signup-card">
+            <h1> Create an Account</h1>
+            <p>Join Us Today</p>
+
+            <form id="signupForm">
+                <input type="text" placeholder="Email Address" id="email"/>
+                <input type="number" placeholder="Enter Age" id="age"/>
+                <input type="password" placeholder="password" id="password">
+                <button type="submit" >Signup</button>
+            </form>
+        </div>
+     </section>
+     <script>
+        let emailTag = document.getElementById('email');
+        let ageTag = document.getElementById('age');
+        let passTag = document.getElementById('password');
+        let form = document.getElementById('signupForm');
+
+        form.addEventListener('submit', async (e) =>{
+            e.preventDefault();
+
+            if(!emailTag.value || !ageTag.value || !passTag.value){
+                return alert('All fields are required')
+            }
+
+            let user = {
+                email:emailTag.value,
+                password:passTag.value,
+                age:ageTag.value
+            }
+            try {
+                let res = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify(user)
+                });
+                let data = await res.json();
+                alert(data.message);
+
+
+                emailTag.value = "";
+                passTag.value = "";
+                ageTag.value = "";
+
+
+            } catch (error) {
+                console.log(error);
+            }
+        })
+     </script>
+</body>
+</html>
