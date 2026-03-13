@@ -1,11 +1,11 @@
- 
 import React from "react";
+import styles from "./Fruit.module.css";
 
 function fetchFruitData() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(["Apple", "Banana", "Cherry"]);
-    }, 0);
+    }, 2000);
   });
 }
 
@@ -22,7 +22,7 @@ let fruitResource = {
       });
     }
 
-    throw this.promise;  
+    throw this.promise;
   },
 };
 
@@ -31,8 +31,8 @@ function Fruits() {
 
   return (
     <>
-      <h2>My Favorite Fruits:</h2>
-      <ul>
+      <h2 className={styles.mybutton}>My Favorite Fruits:</h2>
+      <ul className={styles.primary}>
         {fruits.map((fruit, index) => (
           <li key={index}>{fruit}</li>
         ))}
