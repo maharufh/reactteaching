@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ultra Eid Mubarak</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #000, #0f2027, #1c1c1c, #000);
+  background-size: 400% 400%;
+  animation: galaxy 12s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Galaxy animation */
+@keyframes galaxy {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+
+/* Stars */
+.stars span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: gold;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; transform: scale(1.5); }
+}
+
+/* Card */
+.card {
+  z-index: 2;
+  width: 420px;
+  padding: 40px;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,215,0,0.2);
+}
+
+/* Arabic */
+.arabic {
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+  color: gold;
+}
+
+/* Moon */
+.moon {
+  font-size: 60px;
+  text-shadow: 0 0 20px gold;
+}
+
+/* Buttons */
+.btn {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  background: gold;
+  cursor: pointer;
+}
+
+/* Mosque silhouette */
+.mosque {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: black;
+  clip-path: polygon(
+    0% 100%, 10% 70%, 20% 100%, 30% 60%, 40% 100%, 
+    50% 50%, 60% 100%, 70% 65%, 80% 100%, 90% 75%, 100% 100%
+  );
+}
+
+/* Fireworks */
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: gold;
+  border-radius: 50%;
+  animation: explode 1s forwards;
+}
+
+@keyframes explode {
+  to {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+  <div class="moon">🌙</div>
+  <div class="arabic">عيد مبارك</div>
+  <h2>Eid Mubarak</h2>
+  <p>May your life shine like the stars ✨</p>
+
+  <button class="btn" onclick="fireworks()">🎇 Celebrate</button>
+  <button class="btn" onclick="playMusic()">🔊 Music</button>
+  <button class="btn" onclick="share()">📱 Share</button>
+</div>
+
+<div class="mosque"></div>
+
+<!-- Audio -->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+
+/* Stars */
+const stars = document.querySelector('.stars');
+for(let i=0;i<100;i++){
+  let s = document.createElement('span');
+  s.style.top = Math.random()*100+"%";
+  s.style.left = Math.random()*100+"%";
+  stars.appendChild(s);
+}
+
+/* Fireworks */
+function fireworks(){
+  for(let i=0;i<40;i++){
+    let dot = document.createElement("div");
+    dot.className = "firework";
+
+    dot.style.left = "50%";
+    dot.style.top = "50%";
+
+    dot.style.setProperty('--x',(Math.random()-0.5)*300+"px");
+    dot.style.setProperty('--y',(Math.random()-0.5)*300+"px");
+
+    document.body.appendChild(dot);
+    setTimeout(()=>dot.remove(),1000);
+  }
+}
+
+/* Music */
+function playMusic(){
+  document.getElementById("music").play();
+}
+
+/* WhatsApp Share */
+function share(){
+  let msg = "Eid Mubarak 🌙✨";
+  window.open("https://wa.me/?text=" + encodeURIComponent(msg));
+}
+
+</script>
+
+</body>
+</html>

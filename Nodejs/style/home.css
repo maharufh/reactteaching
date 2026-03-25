@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins" , sans-serif;
+}
+body {
+    background: white;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    background: white;
+    padding: 18px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-weight: 600;
+    margin-left: 25px;
+    font-size: 14px;
+    color: #555;
+}
+
+ nav a {
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    color: #555;
+    transition: 0.3s ease;
+ }
+ nav a:hover{
+    color: #4f46e5;
+ }
+ .hero {
+    text-align: center;
+    padding: 90px 0;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+ }
+ .hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+
+ }
+
+ .hero p {
+    max-width: 0 auto 30px ;
+    line-height: 1.6;
+    opacity: 0.9;
+ }
+
+ .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: white;
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+ }
+ .btn:hover{
+    transform:  translate(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+ }
+
+ .dark-btn {
+    background: #2c3e50;
+    color: white;
+ }
+ .features {
+    padding: 80px 0;
+    text-align: center;
+    background: white;
+ }
+ .features h2 {
+    margin-bottom: 40px;
+    font-size: 30px;
+
+ }
+ 
+ .feature-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+ }
+
+ .feature-card:hover {
+    transform: translate(-8px);
+ }
+
+ .feature-card h3 {
+    margin-bottom: 15px;
+    color: #4f46e5;
+ }
+
+ .cta {
+    padding: 80px 0;
+    text-align: center;
+    background: #4f46e5;
+    color: white;
+ }
+ .cta h2 {
+    margin-bottom: 15px;
+
+ }
+
+ .cta p {
+    margin-bottom: 25px;
+ }
+
+ footer {
+    background: white;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 14px;
+    color: #777;
+    margin-top: auto;
+ }
+
+ @media 
+ (max-width: 768px) {
+    nav {
+        display: none;
+
+    }
+    .hero h1 {
+        font-size: 30px;
+    }
+    
+ }

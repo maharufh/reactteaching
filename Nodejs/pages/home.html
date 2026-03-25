@@ -1,23 +1,73 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Web App</title>
+    <link rel="stylesheet" href="../style/home.css" />
 </head>
 <body>
-     <header>
+
+    <!-- Navbar -->
+    <header>
         <div class="container nav-container">
-            <h2 class="logo">My App</h2>
+            <h2 class="logo">MyApp</h2>
             <nav>
                 <a href="/home">Home</a>
                 <a href="/about">About</a>
-                <a href="/signup">SignUp</a>
+                <a href="/signup">Signup</a>
                 <a href="/login">Login</a>
-                <a href="/password">Change Password</a>
+                <a href="/password">Password</a>
                 <a href="/delete">Delete</a>
             </nav>
-
         </div>
-     </header>
+    </header>
+
+   
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to My Application</h1>
+            <p>
+                A simple, secure and modern web platform built using Node.js and Express.
+                Manage your account, update your profile and explore features easily.
+            </p>
+            <a href="/signup" class="btn">Get Started</a>
+        </div>
+    </section>
+
+ 
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose MyApp?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Secure Authentication</h3>
+                    <p>Advanced account protection with secure password management.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fast Performance</h3>
+                    <p>Optimized backend ensures smooth and reliable experience.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Responsive Design</h3>
+                    <p>Fully responsive layout for desktop, tablet and mobile devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Create your account today and explore all features.</p>
+            <a href="/signup" class="btn dark-btn">Create Free Account</a>
+        </div>
+    </section>
+
+  
+    <footer>
+        <p>© 2026 MyApp. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
