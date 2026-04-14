@@ -1,36 +1,31 @@
-import {BrowserRouter, Routes,Route, Link}  from "react-router-dom";
-import About from "./components/pages/About";
-import Home from "./components/pages/Home";
-import Contact from "./components/pages/Contact";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Products from "./components/pages/Products";
-import CarProducts from "./components/pages/CarProducts";
-import BikeProducts from "./components/pages/BikeProducts";
- 
- 
- 
+import Contact from "./components/pages/Contact";
+import Home from "./components/pages/Home"; 
+
+const navLinkStyles = ({ isActive }) => ({
+  color: isActive ? '#007bff' : '#333',
+  textDecoration: isActive ? 'none' : 'underline',
+  fontWeight: isActive ? 'bold' : 'normal',
+  padding: '5px 10px'
+});
 
 function App() {
-   
   return (
     <BrowserRouter>
-    
-<nav>
-  <Link to="/">Home</Link>
-  <Link to="/products">Products</Link>
-  <Link to="/contact">Contact</Link>
-</nav>
 
-<Routes>
+      <nav style={{ marginBottom: "20px" }}>
+        <NavLink to="/" style={navLinkStyles}>Home</NavLink>
+        <NavLink to="/product" style={navLinkStyles}>Products</NavLink>
+        <NavLink to="/contact" style={navLinkStyles}>Contact</NavLink>
+      </nav>
 
-  <Route path="/" element = {<Home/>} ></Route>
-  <Route path="/products" element = {<Products/>} >
-  <Route path="car" element = {<CarProducts/>} ></Route>
-  <Route path="bike" element = {<BikeProducts/>} ></Route>
-  
-  </Route>
-  <Route path="/contact" element = {<Contact/>} ></Route>
-</Routes>
-     
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
     </BrowserRouter>
   );
 }
