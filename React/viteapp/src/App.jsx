@@ -1,33 +1,28 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
-import Products from "./components/pages/Products";
-import Contact from "./components/pages/Contact";
-import Home from "./components/pages/Home"; 
+ import React from 'react'
 
-const navLinkStyles = ({ isActive }) => ({
-  color: isActive ? '#007bff' : '#333',
-  textDecoration: isActive ? 'none' : 'underline',
-  fontWeight: isActive ? 'bold' : 'normal',
-  padding: '5px 10px'
-});
+ const fruitlist = ['apple','banana','cherry'];
 
-function App() {
-  return (
-    <BrowserRouter>
+// const users = [{id:1,name:'Rahul',age: 25},
+//   {id:2,name:'Gunjan',age: 24},
+//   {id:3,name:'Maharufh',age: 24},
+  
+// ]
+ 
+ function App() {
+   return (
+     <div>
+      <ul>
+        {fruitlist.map((fruit,index,array) => {
+          return(
 
-      <nav style={{ marginBottom: "20px" }}>
-        <NavLink to="/" style={navLinkStyles}>Home</NavLink>
-        <NavLink to="/product" style={navLinkStyles}>Products</NavLink>
-        <NavLink to="/contact" style={navLinkStyles}>Contact</NavLink>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-
-    </BrowserRouter>
-  );
-}
-
-export default App;
+            
+            <li key={fruit}> Name:{fruit}, Index: {index}, Array:{array}</li>
+          )
+          }
+        )}
+      </ul>
+     </div>
+   )
+ }
+ 
+ export default App
